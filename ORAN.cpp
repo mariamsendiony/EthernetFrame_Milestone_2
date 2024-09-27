@@ -211,17 +211,18 @@ void ORAN::generate_ORAN_packet(vector<uint16_t>& ORANPacket)
     IQsamples iqq;
     vector<IQsamples> iqvalues = readiq("iq_file.txt",iqq);
     
-    if(subframeId==10){
-        subframeId=0;
-        frameId++;
-    }
-    if(slotId==(Config::SCS/15)+1){
-        slotId=0;
-        subframeId++;
-    }
+
     if(symbolId==14){
         symbolId=0;
         slotId++;
+        if(slotId==(Config::SCS/15)){
+        slotId=0;
+        subframeId++;
+                if(subframeId==10){
+                subframeId=0;
+                frameId++;
+            }
+        }
     }
     ORANPacket.push_back(first_byte);
     ORANPacket.push_back(frameId);
@@ -254,6 +255,8 @@ void ORAN::generate_ORAN_packet(vector<uint16_t>& ORANPacket)
     index_within_iq=index_within_iq+Config::NRBPerpacket*12;
     
     symbolId++;
+
+
 
 }
 
@@ -313,22 +316,22 @@ int ORAN::generate_ORAN_packet_fragmentation(vector<uint16_t> &ORANPacket)
 
 }
 
-/*int main()
-{
+// int main()
+// {
     
-    Config Configuration;    
-    readConfig("second_milstone.txt", Configuration);
-    ORAN ora;
-    //ora.calculate();
-    vector< uint16_t> packet,packet2;
-    ora.generate_ORAN_packet(packet);
+//     Config Configuration;    
+//     readConfig("second_milstone.txt", Configuration);
+//     ORAN ora;
+//     //ora.calculate();
+//     vector< uint16_t> packet,packet2;
+//     ora.generate_ORAN_packet(packet);
     
-    // for (int i=0;i<packet.size();i++) {
-    //    cout <<std::hex<< packet[i] << " ";
-    // }
-    // ora.generate_ORAN_packet(packet2);
+//     // for (int i=0;i<packet.size();i++) {
+//     //    cout <<std::hex<< packet[i] << " ";
+//     // }
+//     // ora.generate_ORAN_packet(packet2);
 
-    // for (int i=0;i<packet2.size();i++) {
-    //    cout <<std::hex<< packet2[i] << " ";
-    // }
-}*/
+//     // for (int i=0;i<packet2.size();i++) {
+//     //    cout <<std::hex<< packet2[i] << " ";
+//     // }
+// }
