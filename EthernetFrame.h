@@ -36,5 +36,6 @@ class EthernetFrame{
     string repeatString(const std::string& str, int times);
     string putIdIntoStringTwoByte(uint16_t id);
     string putIdIntoStringFourByte(uint32_t id);
+    string putIdIntoStringOneByte(uint16_t id);
 };
 #endif

@@ -198,7 +198,12 @@ string EthernetFrame::intvector2string(vector<uint16_t> &value)
     string result="";
     
     for (int i = 0; i < value.size(); ++i) {
-     result=result+putIdIntoStringTwoByte(value[i]);
+        if(i<7 || i==8|| i==9||i==11){
+            result=result+putIdIntoStringOneByte(value[i]);
+        }
+        else{
+             result=result+putIdIntoStringTwoByte(value[i]);
+        }
     }
     return result;
 }
@@ -248,6 +253,16 @@ string EthernetFrame::putIdIntoStringFourByte(uint32_t id)
     }
     std::stringstream stream;
     stream << std::setw(8) << std::setfill('0') << std::hex << std::uppercase << id;
+    return stream.str();
+}
+string EthernetFrame::putIdIntoStringOneByte(uint16_t id)
+{
+        if (id < 0 || id > 255)
+    {
+        throw std::out_of_range("Number must be between 0 and 255");
+    }
+    std::stringstream stream;
+    stream << std::setw(2) << std::setfill('0') << std::hex << std::uppercase << id;
     return stream.str();
 }
 /*

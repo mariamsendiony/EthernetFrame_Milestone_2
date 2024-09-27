@@ -14,9 +14,9 @@ class ORAN
     static uint8_t frameId;
     static uint8_t subframeId;
     static uint8_t slotId;
-    static uint8_t symbolId;
+    static uint8_t symbolId;//7
     uint16_t sectionId;
-    uint8_t RB;
+    uint8_t RB;//9,10,12
     uint8_t SymInc;
     uint16_t StartPrbu;
     uint8_t numPrbu;
