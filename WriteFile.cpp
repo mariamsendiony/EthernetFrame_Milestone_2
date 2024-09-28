@@ -8,7 +8,11 @@ composed of an ORAN packet. The lifetime of each of them is independant, an ethe
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
+<<<<<<< HEAD
         cerr << "Usage: " << argv[0] << " second_milstone.txt output_file.txt\n";
+=======
+        cerr << "Usage: " << argv[0] << " second_milstone.txt output_file>\n";
+>>>>>>> fad7d25056b654f35c6132145a55f6862b193798
         return 1;
     }
     // second_milstone.txt output_file.txt
