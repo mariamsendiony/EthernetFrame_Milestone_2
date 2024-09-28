@@ -206,10 +206,9 @@ uint16_t ORAN::convertStrHexa(string hexaStr)
 }
 
 
-void ORAN::generate_ORAN_packet(vector<uint16_t>& ORANPacket)
+void ORAN::generate_ORAN_packet(vector<uint16_t>& ORANPacket,vector<IQsamples>& iqvalues )
 {   
-    IQsamples iqq;
-    vector<IQsamples> iqvalues = readiq("iq_file.txt",iqq);
+   
     
 
     if(symbolId==14){
@@ -224,6 +223,7 @@ void ORAN::generate_ORAN_packet(vector<uint16_t>& ORANPacket)
             }
         }
     }
+
     ORANPacket.push_back(first_byte);
     ORANPacket.push_back(frameId);
     ORANPacket.push_back(subframeId);
@@ -260,10 +260,10 @@ void ORAN::generate_ORAN_packet(vector<uint16_t>& ORANPacket)
 
 }
 
-int ORAN::generate_ORAN_packet_fragmentation(vector<uint16_t> &ORANPacket)
+int ORAN::generate_ORAN_packet_fragmentation(vector<uint16_t> &ORANPacket,vector<IQsamples>& iqvalues)
 {
-    IQsamples iqq;
-    vector<IQsamples> iqvalues = readiq("iq_file.txt",iqq);
+    //IQsamples iqq;
+    //vector<IQsamples> iqvalues = readiq("iq_file.txt",iqq);
     //headers+minimumIFG
     int limit;
     int headersandminimumIFG=42+Config::MinNumOfIFGsPerPacket;

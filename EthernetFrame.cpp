@@ -208,7 +208,7 @@ string EthernetFrame::intvector2string(vector<uint16_t> &value)
     return result;
 }
 
-string EthernetFrame::generate_packet(int IFG_per_packet)
+string EthernetFrame::generate_packet(int IFG_per_packet,vector<IQsamples>& iqvalues)
 {
     
     
@@ -217,7 +217,7 @@ string EthernetFrame::generate_packet(int IFG_per_packet)
     //cout<<(crc);
     string payloadStr;
     ecpri* ecpripacket=new ecpri;
-    ecpripacket->generate_ecpri(payload);
+    ecpripacket->generate_ecpri(payload,iqvalues);
     payloadStr=intvector2string(payload);
 
     string Frame=intToHex(preamble)+to_string(destinationMac)+to_string(sourceMac)+intToHex(etherType)+payloadStr+putIdIntoStringFourByte(crc)+repeatString(IFG_byte,IFG_per_packet);

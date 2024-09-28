@@ -8,7 +8,7 @@ class ecpri{
   static uint16_t SeqId;
   public:
   ecpri();
-  void generate_ecpri(vector<uint16_t>& ecpriPacket);
+  void generate_ecpri(vector<uint16_t>& ecpriPacket,vector<IQsamples>& iqvalues);
   void setFirstByte(uint8_t value);
   void setEcpriMessage(uint8_t value);
   void setORANPacket(ORAN* value);

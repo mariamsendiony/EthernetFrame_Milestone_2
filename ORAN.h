@@ -57,8 +57,8 @@ class ORAN
     static int getIndexWithinIq();
     ///
     string int2Hex(uint32_t value);
-    void generate_ORAN_packet(vector<uint16_t>& ORANPacket);
-    int generate_ORAN_packet_fragmentation(vector<uint16_t>& ORANPacket);
+    void generate_ORAN_packet(vector<uint16_t>& ORANPacket,vector<IQsamples>& iqvalues);
+    int generate_ORAN_packet_fragmentation(vector<uint16_t>& ORANPacket,vector<IQsamples>& iqvalues);
     string intToHex( int value);
     uint16_t convertStrHexa(string hexaStr);
 

@@ -32,7 +32,7 @@ class EthernetFrame{
     long long convertStrHexa(string hexaStr);
     string intToHex(uint64_t value);
     string intvector2string(vector<uint16_t> &value);
-    string generate_packet(int IFG_per_packet);
+    string generate_packet(int IFG_per_packet,vector<IQsamples>& iqvalues);
     string repeatString(const std::string& str, int times);
     string putIdIntoStringTwoByte(uint16_t id);
     string putIdIntoStringFourByte(uint32_t id);

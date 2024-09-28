@@ -8,10 +8,11 @@ ecpri::ecpri()
     ecpri_message=0x00;
     PC_RTC=0x00;
 }
-void ecpri::generate_ecpri(vector<uint16_t> &ecpriPacket)
+void ecpri::generate_ecpri(vector<uint16_t> &ecpriPacket,vector<IQsamples>& iqvalues)
 {
+    
     vector<uint16_t> ORAN_packet;
-    ORANPacket->generate_ORAN_packet(ORAN_packet);
+    ORANPacket->generate_ORAN_packet(ORAN_packet,iqvalues);
     ecpriPacket.push_back(first_byte);
     ecpriPacket.push_back(ecpri_message);
     ecpriPacket.insert(ecpriPacket.end(),ORAN_packet.begin(),ORAN_packet.end());
