@@ -221,7 +221,7 @@ string EthernetFrame::generate_packet(int IFG_per_packet,vector<IQsamples>& iqva
     payloadStr=intvector2string(payload);
 
     string Frame=intToHex(preamble)+to_string(destinationMac)+to_string(sourceMac)+intToHex(etherType)+payloadStr+putIdIntoStringFourByte(crc)+repeatString(IFG_byte,IFG_per_packet);
-    //cout<<Frame<<'\n';
+    transform(Frame.begin(), Frame.end(), Frame.begin(), ::toupper);
     return Frame ;
 }
 

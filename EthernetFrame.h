@@ -2,6 +2,8 @@
 #define EF
 #include "ecpri.cpp"
 #include "Read_file_Milestone_2.h"
+#include <algorithm>
+#include <cctype>
 
 class EthernetFrame{
     private:
