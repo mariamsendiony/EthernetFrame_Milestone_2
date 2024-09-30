@@ -49,10 +49,10 @@ int main(int argc, char* argv[]) {
     //Writing the IFG at the end into the file
     if(out[1]>0)
     {
-        for(unsigned int i=0;i<out[2];i++)
-        {
-            myfile<<ef->repeatString(IFG,out[1])<<'\n';
-        }
+        
+        
+        myfile<<ef->repeatString(IFG,out[1])<<'\n';
+        
     }
         // Close the file
         myfile.close();
